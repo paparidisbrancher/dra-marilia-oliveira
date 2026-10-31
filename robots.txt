@@ -1,0 +1,5 @@
+# Em aprovação: fora dos buscadores. Na publicação, trocar "Disallow: /" por "Allow: /".
+User-agent: *
+Disallow: /
+
+Sitemap: https://paparidisbrancher.github.io/dra-marilia-oliveira/sitemap.xml
