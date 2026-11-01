@@ -5,7 +5,7 @@ Abra com qualquer servidor estático (ex.: `python -m http.server`).
 
 Origem: protótipo `Site Dra Marilia Oliveira.dc.html` em `Downloads\marilia\` (briefing em `uploads/`), portado à mão para HTML estático por causa de SEO e prévia em redes sociais.
 
-URL prevista: https://paparidisbrancher.github.io/dra-marilia-oliveira/ (ainda não publicado). Enquanto estiver em aprovação: `noindex` no `<head>` e `robots.txt` bloqueando buscadores.
+Demonstração: https://paparidisbrancher.github.io/dra-marilia-oliveira/ (GitHub Pages). Enquanto estiver em aprovação: `noindex` no `<head>` e `robots.txt` bloqueando buscadores.
 
 ## Pendências com a cliente
 
@@ -18,18 +18,21 @@ Nada não confirmado aparece no site. O que depende de confirmação ficou de fo
 - [ ] Cidades atendidas, horários e condições da parceria com clínicas
 - [ ] WhatsApp (35) 99862-4010 e Instagram @dra.mariliaoliveiracs (vieram da bio)
 - [ ] Logo oficial (a assinatura em texto é provisória) e paleta (provisória, ver `:root`)
-- [ ] Revisão clínica dos textos de Tratamento de canal, Como funciona e Perguntas frequentes
+- [ ] Revisão clínica dos textos de Tratamento de canal, Como funciona e Perguntas frequentes, e da ilustração do dente em corte (legendas Esmalte, Dentina, Polpa e Canais)
 - [ ] Publicidade conforme as normas do CFO e do CRO-MG
 - [ ] Política de privacidade: só se entrar alguma ferramenta de análise ou rastreamento (hoje não há nenhuma)
 
 ## Imagens
 
+Cada foto aparece uma vez só na página (um recorte do ensaio no Sobre repetia a foto do início e saiu).
+
 | Arquivo | Origem | Uso | Pendência |
 |---|---|---|---|
 | `ensaio-720/1100.webp` | `marilia-ensaio.jpg` (ensaio de estúdio) | Início | Autorização da doutora e da fotógrafa; pedir original |
-| `detalhe-600.webp` | recorte do mesmo ensaio | Sobre | Idem |
-| `retrato-350.webp` | recorte da publicação de apresentação do Instagram, sem os textos | Para dentistas | Baixa resolução (350 px); pedir foto original |
+| `retrato-350.webp` | recorte da publicação de apresentação do Instagram, sem os textos | Sobre, em moldura de arco | Baixa resolução (350 px; um recorte maior pegaria o texto da arte); pedir foto original |
 | `og.jpg` | montagem com o ensaio | Compartilhamento | Idem ao ensaio |
+
+Com fotos novas (consultório, atendimento, retrato em boa resolução), dá para voltar a ter foto em "Para dentistas" e aumentar o retrato do Sobre.
 
 ## SEO
 
@@ -43,5 +46,20 @@ Para publicar de verdade:
 ## Design
 
 - Títulos: Cormorant Garamond. Texto: Manrope. Assinatura cursiva (só na seção Sobre): Mrs Saint Delafield. Todas OFL, em `fonts/`.
-- Diferenças em relação ao protótipo: sem a palavra em itálico colorida nos títulos, sem numeração "(01)…(06)" nas seções e sem rótulos em caixa alta. A numeração ficou só onde há etapas de fato. Uma única animação de abertura no topo, que respeita "reduzir movimento".
+- Diferenças em relação ao protótipo: sem a palavra em itálico colorida nos títulos, sem numeração "(01)…(06)" nas seções e sem rótulos em caixa alta. Numeração só onde há etapas de fato (Como funciona e os passos de Para dentistas); os tópicos de Tratamento de canal não têm marcador.
+- Tratamento de canal tem uma ilustração própria (SVG no `index.html`) de um molar em corte, com a polpa e os canais em caramelo. Desenhada à mão, sem banco de imagens.
+- Movimento: abertura no topo; a frase do Sobre ganha cor linha a linha ao rolar (CSS `animation-timeline: view()`; sem suporte, aparece pronta); o retrato sobe dentro do arco e o dente se desenha uma vez ao entrar na tela. Tudo desligado com "reduzir movimento".
 - FAQ com `<details>` nativo e menu do celular com `<dialog>` nativo (foco preso, Esc fecha). Botão flutuante do WhatsApp só no celular, depois do topo.
+
+## Referências premiadas (consultadas em 01/11/2026)
+
+Sites de clínicas odontológicas premiados no Awwwards. Serviram de princípio, nada foi copiado.
+
+| Site | Prêmio | O que aproveitamos |
+|---|---|---|
+| [Aventura Dental Arts](https://aventuradentalarts.com/) | Site do Dia, mar/2026 | Frase de apresentação em serifa grande que ganha cor ao rolar; retrato pequeno junto do texto |
+| [Dębski Clinic](https://www.debskiclinic.pl) | Menção honrosa, out/2023 | Retrato da médica em moldura de arco; tom pessoal e acolhedor |
+| [LAVA dental](https://lavadental.lv/en) | Menção honrosa, jan/2026 | Contenção: poucas cores, movimento discreto, clareza em vez de apelo de venda |
+| [Minemal Dental Aesthetics](https://minemal.dental/) | Menção honrosa, nov/2024 | A tipografia como protagonista; o próprio dente como tema visual |
+
+O Cabinet Dentaire Gonin Hetzel (menção honrosa, 2021) ficou de fora: o domínio expirou e hoje mostra outro site.

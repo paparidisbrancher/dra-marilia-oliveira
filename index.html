@@ -170,7 +170,7 @@ h1, h2 { text-wrap: balance; }
 @media (max-width: 599px) {
   .hero-foto { min-height: min(118vw, 560px); }
   .destaques { grid-template-columns: 1fr; gap: 8px; }
-  .dentistas figure { max-width: 260px; }
+  .retrato { width: 240px; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .hero h1 .l > span { animation: subir 1.15s var(--ease) both; }
@@ -187,9 +187,10 @@ h1, h2 { text-wrap: balance; }
 
 /* Sobre */
 .sobre .wrap { display: flex; flex-wrap: wrap; align-items: flex-start; gap: clamp(48px, 7vw, 120px); }
-.sobre figure { flex: 1 1 300px; max-width: 500px; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 2px; background: #776553; }
-.sobre figure img { width: 100%; height: 100%; object-fit: cover; }
-.sobre-texto { flex: 1.5 1 440px; min-width: 0; display: flex; flex-direction: column; gap: clamp(28px, 3.6vw, 48px); }
+/* Retrato em arco. A foto do Instagram só rende 350 px sem o texto da arte, por isso fica pequena. */
+.retrato { flex: none; width: min(100%, 340px); aspect-ratio: 350 / 435; overflow: hidden; border-radius: 999px 999px 2px 2px; background: #B3A394; }
+.retrato img { width: 100%; height: 100%; object-fit: cover; }
+.sobre-texto { flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: clamp(28px, 3.6vw, 48px); }
 .sobre-frase { font: 300 clamp(30px, 3.4vw, 54px)/1.14 var(--serif); letter-spacing: -.012em; }
 .sobre-linha { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px 48px; }
 .sobre-linha .lead { flex: 1 1 300px; }
@@ -204,11 +205,23 @@ h1, h2 { text-wrap: balance; }
 .tratamento .wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(56px, 7vw, 128px); }
 .tratamento-intro { align-self: start; display: flex; flex-direction: column; align-items: flex-start; gap: 28px; }
 @media (min-width: 960px) { .tratamento-intro { position: sticky; top: calc(var(--topo) + 36px); } }
-.topicos li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(20px, 3vw, 44px); padding: clamp(28px, 3vw, 40px) 0 clamp(32px, 3.4vw, 48px); border-top: 1px solid var(--linha); }
-.topicos .marca { min-width: 1.5em; font: italic 300 clamp(40px, 3.8vw, 58px)/.9 var(--serif); color: var(--caramelo); }
+.topicos li { padding: clamp(28px, 3vw, 40px) 0 clamp(32px, 3.4vw, 48px); border-top: 1px solid var(--linha); }
 .topicos h3 { margin-bottom: 14px; font: 500 clamp(26px, 2.2vw, 34px)/1.1 var(--serif); }
 .topicos p { max-width: 52ch; color: var(--texto-2); }
-.topicos .aviso { display: block; padding-top: 24px; border-top: 1px solid var(--linha); }
+.aviso { padding-top: 24px; border-top: 1px solid var(--linha); }
+/* Ilustração do dente em corte (desenho próprio, em SVG) */
+.anatomia { display: flex; flex-direction: column; gap: 18px; padding-bottom: clamp(40px, 5vw, 64px); }
+.anatomia svg { width: min(100%, 360px); height: auto; overflow: visible; }
+.anatomia .dente { fill: #F8F2EA; }
+.anatomia .esmalte { fill: #FFFCF7; }
+.anatomia .jed { fill: none; stroke: var(--cafe); stroke-width: .8; opacity: .45; }
+.anatomia .polpa { fill: var(--caramelo); }
+.anatomia .contorno { fill: none; stroke: var(--cafe); stroke-width: 1.4; stroke-linejoin: round; }
+.anatomia .guias { stroke: var(--cafe); stroke-width: .75; opacity: .5; }
+.anatomia .pontos { fill: var(--cafe); }
+.anatomia .pontos .claro { fill: #F8F2EA; }
+.anatomia text { font: 600 12.5px var(--sans); fill: var(--cafe); }
+.anatomia figcaption { max-width: 46ch; }
 
 /* Como funciona */
 .como { background: var(--cafe); color: var(--linho); }
@@ -231,18 +244,15 @@ h1, h2 { text-wrap: balance; }
 .dentistas { background: var(--areia); }
 .dentistas .rotulo { color: #5E4A3D; }
 .dentistas-cab { display: flex; flex-direction: column; gap: 28px; }
-.dentistas h2 { max-width: 14ch; font-size: clamp(42px, 6.2vw, 104px); line-height: .98; letter-spacing: -.025em; }
-.dentistas-corpo { margin-top: clamp(56px, 7vw, 104px); display: flex; flex-wrap: wrap; gap: clamp(40px, 6vw, 96px); }
-.dentistas figure { flex: 0 1 360px; min-width: min(100%, 260px); aspect-ratio: 4 / 5; overflow: hidden; border-radius: 2px; background: #B3A394; }
-.dentistas figure img { width: 100%; height: 100%; object-fit: cover; }
-.dentistas-texto { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 44px; }
-.dentistas-texto > div:first-child { display: flex; flex-direction: column; gap: 22px; }
-.dentistas-frase { max-width: 26ch; font: 400 clamp(26px, 2.5vw, 38px)/1.22 var(--serif); }
-.dentistas .lead { max-width: 48ch; color: #5E4A3D; }
-.passos { counter-reset: passo; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap: 0 28px; }
-.passos li { counter-increment: passo; display: flex; flex-direction: column; gap: 6px; padding: 18px 0 20px; border-top: 1px solid rgba(73, 54, 43, .24); font-size: 15px; font-weight: 500; line-height: 1.45; }
-.passos li::before { content: counter(passo); font-size: 13px; font-weight: 600; color: #5E4A3D; }
-.dentistas-acao { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+.dentistas h2 { max-width: 20ch; font-size: clamp(42px, 6.2vw, 104px); line-height: .98; letter-spacing: -.025em; }
+.dentistas-corpo { margin-top: clamp(56px, 7vw, 104px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); align-items: start; gap: 48px clamp(40px, 7vw, 120px); }
+.dentistas-texto { display: flex; flex-direction: column; gap: 22px; }
+.dentistas-frase { max-width: 24ch; font: 400 clamp(26px, 2.5vw, 38px)/1.22 var(--serif); }
+.dentistas .lead { max-width: 44ch; color: #5E4A3D; }
+.passos { counter-reset: passo; border-bottom: 1px solid rgba(73, 54, 43, .24); }
+.passos li { counter-increment: passo; display: grid; grid-template-columns: 2.4em minmax(0, 1fr); align-items: baseline; padding: 18px 0 20px; border-top: 1px solid rgba(73, 54, 43, .24); font: 400 clamp(21px, 1.8vw, 26px)/1.25 var(--serif); }
+.passos li::before { content: counter(passo); font: 600 13px/1 var(--sans); color: #5E4A3D; }
+.dentistas-acao { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
 .dentistas-acao .nota { flex: 1 1 220px; max-width: 36ch; color: #5E4A3D; }
 
 /* Perguntas frequentes (details nativo) */
@@ -307,6 +317,25 @@ a.canal:hover { border-top-color: var(--cafe); }
 .flutuante.on { opacity: 1; transform: none; pointer-events: auto; }
 .flutuante .ico { width: 36px; height: 36px; }
 @media (min-width: 1080px) { .flutuante { display: none; } }
+
+/* Movimento ao rolar: a frase do Sobre ganha cor linha a linha; retrato e ilustração aparecem uma vez. */
+@supports (animation-timeline: view()) {
+  @media screen and (prefers-reduced-motion: no-preference) {
+    .tinta > span { animation: tinta auto linear both; animation-timeline: view(); animation-range: entry 100% cover 45%; }
+    @keyframes tinta { from { color: var(--areia); } }
+  }
+}
+@media screen and (prefers-reduced-motion: no-preference) {
+  /* O recorte fica na foto, não na moldura: o IntersectionObserver não vê um elemento todo recortado. */
+  .anima .retrato img { clip-path: inset(100% 0 0 0); transform: scale(1.08); transition: clip-path 1.1s var(--ease), transform 1.6s var(--ease); }
+  .anima .retrato.visivel img { clip-path: inset(0); transform: none; }
+  .anima .anatomia .contorno { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.8s var(--ease); }
+  .anima .anatomia :is(.corpo, .polpa, .legendas) { opacity: 0; transition: opacity .8s ease .2s; }
+  .anima .anatomia .polpa { transition-delay: .6s; }
+  .anima .anatomia .legendas { transition-delay: 1.1s; }
+  .anima .anatomia.visivel .contorno { stroke-dashoffset: 0; }
+  .anima .anatomia.visivel :is(.corpo, .polpa, .legendas) { opacity: 1; }
+}
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
 @media print { .topo, .flutuante, .menu { display: none !important; } }
@@ -377,12 +406,12 @@ a.canal:hover { border-top-color: var(--cafe); }
 
 <section id="sobre" class="sobre secao" aria-labelledby="sobre-titulo">
   <div class="wrap">
-    <figure>
-      <img src="assets/detalhe-600.webp" width="600" height="750" loading="lazy" alt="Dra. Marília Oliveira sorrindo, de olhos fechados, com a mão próxima ao rosto.">
+    <figure class="retrato">
+      <img src="assets/retrato-350.webp" width="350" height="435" loading="lazy" alt="Retrato da Dra. Marília Oliveira, de cabelos loiros ondulados, blazer bege e camisa branca.">
     </figure>
     <div class="sobre-texto">
       <h2 id="sobre-titulo" class="rotulo">Sobre</h2>
-      <p class="sobre-frase">Sou a Dra. Marília Oliveira, <span class="nb">cirurgiã-dentista</span>, e acredito que um atendimento cuidadoso começa ao ouvir cada pessoa.</p>
+      <p class="sobre-frase tinta"><span>Sou</span> <span>a</span> <span>Dra.</span> <span>Marília</span> <span>Oliveira,</span> <span class="nb">cirurgiã-dentista,</span> <span>e</span> <span>acredito</span> <span>que</span> <span>um</span> <span>atendimento</span> <span>cuidadoso</span> <span>começa</span> <span>ao</span> <span>ouvir</span> <span>cada</span> <span>pessoa.</span></p>
       <div class="sobre-linha">
         <p class="lead">Atuo com foco em endodontia, buscando unir atenção individual, conhecimento técnico e recursos adequados para cada caso.</p>
         <span class="rubrica" aria-hidden="true" translate="no">Marília Oliveira</span>
@@ -408,30 +437,38 @@ a.canal:hover { border-top-color: var(--cafe); }
       </a>
     </div>
     <div>
+      <figure class="anatomia">
+        <svg viewBox="24 12 316 316" aria-hidden="true" focusable="false">
+          <g class="corpo">
+            <path class="dente" d="M58 136C42 118 34 96 35 72C37 46 52 27 73 23C92 21 104 36 120 38C136 36 148 21 167 23C188 27 203 46 205 72C206 96 198 118 182 136C187 190 188 260 178 312C175 322 163 322 160 312C156 262 152 222 136 204C128 196 112 196 104 204C88 222 84 262 80 312C77 322 65 322 62 312C52 260 53 190 58 136Z"/>
+            <path class="esmalte" d="M58 136C42 118 34 96 35 72C37 46 52 27 73 23C92 21 104 36 120 38C136 36 148 21 167 23C188 27 203 46 205 72C206 96 198 118 182 136C192 116 195 96 193 76C191 53 180 39 165 37C150 36 138 48 120 50C102 48 90 36 75 37C60 39 49 53 47 76C45 96 48 116 58 136Z"/>
+            <path class="jed" d="M182 136C192 116 195 96 193 76C191 53 180 39 165 37C150 36 138 48 120 50C102 48 90 36 75 37C60 39 49 53 47 76C45 96 48 116 58 136"/>
+          </g>
+          <path class="polpa" d="M70 305C69 258 72 212 88 168C86 148 89 122 95 104C97 94 102 91 105 98C111 108 129 108 135 98C138 91 143 94 145 104C151 122 154 148 152 168C168 212 171 258 170 305C169.5 308.5 167.5 308.5 167 305C166 258 161 214 147 174C137 163 103 163 93 174C79 214 74 258 73 305C72.5 308.5 70.5 308.5 70 305Z"/>
+          <path class="contorno" pathLength="1" d="M58 136C42 118 34 96 35 72C37 46 52 27 73 23C92 21 104 36 120 38C136 36 148 21 167 23C188 27 203 46 205 72C206 96 198 118 182 136C187 190 188 260 178 312C175 322 163 322 160 312C156 262 152 222 136 204C128 196 112 196 104 204C88 222 84 262 80 312C77 322 65 322 62 312C52 260 53 190 58 136Z"/>
+          <g class="legendas">
+            <g class="guias"><line x1="199" y1="58" x2="262" y2="58"/><line x1="176" y1="100" x2="262" y2="100"/><line x1="120" y1="134" x2="262" y2="134"/><line x1="168" y1="252" x2="262" y2="252"/></g>
+            <g class="pontos"><circle cx="199" cy="58" r="2.5"/><circle cx="176" cy="100" r="2.5"/><circle class="claro" cx="120" cy="134" r="2.5"/><circle class="claro" cx="168" cy="252" r="2.5"/></g>
+            <text x="270" y="62">Esmalte</text><text x="270" y="104">Dentina</text><text x="270" y="138">Polpa</text><text x="270" y="256">Canais</text>
+          </g>
+        </svg>
+        <figcaption class="nota">Ilustração de um dente molar em corte. A polpa, onde ficam nervos e vasos sanguíneos, ocupa a parte interna e continua pelos canais, dentro das raízes.</figcaption>
+      </figure>
       <ul class="topicos">
         <li>
-          <span class="marca" aria-hidden="true">i.</span>
-          <div>
-            <h3>O que é a endodontia</h3>
-            <p>A endodontia cuida da parte interna do dente, a polpa, onde ficam nervos e vasos sanguíneos. O tratamento de canal é indicado quando essa região precisa ser tratada para que o dente possa ser preservado.</p>
-          </div>
+          <h3>O que é a endodontia</h3>
+          <p>A endodontia cuida da parte interna do dente, a polpa, onde ficam nervos e vasos sanguíneos. O tratamento de canal é indicado quando essa região precisa ser tratada para que o dente possa ser preservado.</p>
         </li>
         <li>
-          <span class="marca" aria-hidden="true">ii.</span>
-          <div>
-            <h3>Quando procurar avaliação</h3>
-            <p>Sensibilidade prolongada ao quente ou ao frio, dor ao mastigar, inchaço na gengiva ou escurecimento de um dente merecem atenção. Nem sempre esses sinais indicam tratamento de canal. Por isso, a avaliação profissional é o primeiro passo.</p>
-          </div>
+          <h3>Quando procurar avaliação</h3>
+          <p>Sensibilidade prolongada ao quente ou ao frio, dor ao mastigar, inchaço na gengiva ou escurecimento de um dente merecem atenção. Nem sempre esses sinais indicam tratamento de canal. Por isso, a avaliação profissional é o primeiro passo.</p>
         </li>
         <li>
-          <span class="marca" aria-hidden="true">iii.</span>
-          <div>
-            <h3>Como o cuidado é conduzido</h3>
-            <p>Antes de começar, a Dra. Marília explica o que foi observado, qual cuidado é indicado e como serão as etapas. Você pode tirar dúvidas em qualquer momento do processo.</p>
-          </div>
+          <h3>Como o cuidado é conduzido</h3>
+          <p>Antes de começar, a Dra. Marília explica o que foi observado, qual cuidado é indicado e como serão as etapas. Você pode tirar dúvidas em qualquer momento do processo.</p>
         </li>
       </ul>
-      <p class="nota topicos aviso">Conteúdo informativo. Não substitui a avaliação clínica individual.</p>
+      <p class="nota aviso">Conteúdo informativo. Não substitui a avaliação clínica individual.</p>
     </div>
   </div>
 </section>
@@ -483,14 +520,11 @@ a.canal:hover { border-top-color: var(--cafe); }
       <h2 id="dentistas-titulo" class="titulo">Endodontia em parceria com seu consultório.</h2>
     </div>
     <div class="dentistas-corpo">
-      <figure>
-        <img src="assets/retrato-350.webp" width="350" height="435" loading="lazy" alt="Retrato da Dra. Marília Oliveira, de cabelos loiros ondulados e camisa branca.">
-      </figure>
       <div class="dentistas-texto">
-        <div>
-          <p class="dentistas-frase">A Dra. Marília divulga atendimento de canal em clínicas e consultórios de Alpinópolis e região.</p>
-          <p class="lead">Entre em contato para conhecer a disponibilidade e conversar sobre como funciona a parceria.</p>
-        </div>
+        <p class="dentistas-frase">A Dra. Marília divulga atendimento de canal em clínicas e consultórios de Alpinópolis e região.</p>
+        <p class="lead">Entre em contato para conhecer a disponibilidade e conversar sobre como funciona a parceria.</p>
+      </div>
+      <div>
         <ol class="passos" aria-label="Como começar">
           <li>Envie uma mensagem pelo WhatsApp</li>
           <li>Conheça a disponibilidade de atendimento</li>
@@ -512,8 +546,8 @@ a.canal:hover { border-top-color: var(--cafe); }
   <div class="wrap">
     <h2 id="outros-titulo" class="titulo">Além do canal, outros cuidados.</h2>
     <ul class="topicos">
-      <li><span class="marca" aria-hidden="true">i.</span><div><h3>Clínica geral</h3><p>Consultas de rotina, prevenção e tratamentos do dia a dia, a partir de uma conversa sobre as suas necessidades.</p></div></li>
-      <li><span class="marca" aria-hidden="true">ii.</span><div><h3>Facetas em resina</h3><p>Ajustes de forma e cor dos dentes com resina composta, indicados após avaliação individual.</p></div></li>
+      <li><h3>Clínica geral</h3><p>Consultas de rotina, prevenção e tratamentos do dia a dia, a partir de uma conversa sobre as suas necessidades.</p></li>
+      <li><h3>Facetas em resina</h3><p>Ajustes de forma e cor dos dentes com resina composta, indicados após avaliação individual.</p></li>
     </ul>
   </div>
 </section>
@@ -661,9 +695,17 @@ a.canal:hover { border-top-color: var(--cafe); }
   menu.querySelectorAll('nav a').forEach((a) => a.addEventListener('click', () => menu.close()));
   matchMedia('(min-width: 1080px)').addEventListener('change', (e) => { if (e.matches) menu.close(); });
 
+  if (!('IntersectionObserver' in window)) return;
+
+  // Retrato e ilustração aparecem uma vez ao entrar na tela (o CSS só esconde com a classe "anima").
+  document.documentElement.classList.add('anima');
+  const revela = new IntersectionObserver((entradas) => entradas.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add('visivel'); revela.unobserve(e.target); }
+  }), { threshold: 0.3 });
+  document.querySelectorAll('.retrato, .anatomia').forEach((el) => revela.observe(el));
+
   // Botão flutuante: aparece no celular depois do início e some perto da chamada final.
   const flut = document.getElementById('flutuante');
-  if (!('IntersectionObserver' in window)) return;
   const vistos = new Set();
   const io = new IntersectionObserver((entradas) => {
     entradas.forEach((e) => (e.isIntersecting ? vistos.add(e.target) : vistos.delete(e.target)));
