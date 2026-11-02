@@ -172,6 +172,25 @@ h1, h2 { text-wrap: balance; }
   .destaques { grid-template-columns: 1fr; gap: 8px; }
   .retrato { width: 240px; }
 }
+/* Celular: foto em tela cheia primeiro, título por cima da parte de baixo, fundo café.
+   O botão flutuante só aparece depois do início, então o botão do hero continua. */
+@media (max-width: 899px) {
+  .hero { flex-direction: column; flex-wrap: nowrap; background: var(--cafe); color: var(--linho); }
+  .hero :focus-visible { outline-color: var(--linho); }
+  .hero-foto { order: -1; flex: 1 0 auto; min-height: 133vw; }
+  .hero-foto img { object-position: 46% 20%; }
+  .hero-foto::after { content: ""; position: absolute; inset: auto 0 0; height: 48%; background: linear-gradient(to bottom, rgba(73, 54, 43, 0), rgba(73, 54, 43, .7) 55%, var(--cafe)); }
+  .hero-texto { flex: none; position: relative; z-index: 1; margin-top: -130px; padding-top: 0; }
+  .hero h1 { font-size: clamp(2.5rem, 11vw, 3.2rem); }
+  .hero-local { color: var(--caramelo-claro); }
+  .hero-local::before { background: var(--caramelo-claro); }
+  .hero-sub p + p { color: var(--areia); }
+  .hero .destaques { border-top-color: rgba(216, 199, 183, .28); }
+  .hero .btn-escuro { background: var(--linho); color: var(--cafe); }
+  .hero .btn-escuro .ico { background: rgba(73, 54, 43, .1); }
+  .hero .btn-contorno { border-color: rgba(247, 242, 236, .4); color: var(--linho); }
+  .hero .btn-contorno .ico { background: rgba(247, 242, 236, .12); }
+}
 @media (prefers-reduced-motion: no-preference) {
   .hero h1 .l > span { animation: subir 1.15s var(--ease) both; }
   .hero h1 .l:nth-child(2) > span { animation-delay: .1s; }
