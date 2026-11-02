@@ -24,15 +24,16 @@ Nada não confirmado aparece no site. O que depende de confirmação ficou de fo
 
 ## Imagens
 
-Cada foto aparece uma vez só na página (um recorte do ensaio no Sobre repetia a foto do início e saiu).
+Cada foto aparece uma vez só na página. As três são do ensaio corporativo de Jakeline Aguiar (@jakelineaguiarfoto_oficial), publicado em carrossel no Instagram em 04/06/2026 (8 fotos, 1365×1820).
 
-| Arquivo | Origem | Uso | Pendência |
+| Arquivo | Foto do ensaio | Uso | Pendência |
 |---|---|---|---|
-| `ensaio-720/1100.webp` | `marilia-ensaio.jpg` (ensaio de estúdio) | Início | Autorização da doutora e da fotógrafa; pedir original |
-| `retrato-350.webp` | recorte da publicação de apresentação do Instagram, sem os textos | Sobre, em moldura de arco | Baixa resolução (350 px; um recorte maior pegaria o texto da arte); pedir foto original |
-| `og.jpg` | montagem com o ensaio | Compartilhamento | Idem ao ensaio |
+| `ensaio-720/1100.webp` | blazer caramelo, banquinho | Início | Autorização da doutora e da fotógrafa |
+| `sobre-700.webp` | terno escuro, encostada na parede, olhando para a câmera (recorte) | Sobre, em moldura de arco | Idem |
+| `dentistas-600/900.webp` | blazer azul-marinho, braços cruzados (recorte 4:5) | Para dentistas | Idem |
+| `og.jpg` | montagem com a foto do início | Compartilhamento | Idem |
 
-Com fotos novas (consultório, atendimento, retrato em boa resolução), dá para voltar a ter foto em "Para dentistas" e aumentar o retrato do Sobre.
+Ainda não usadas: blazer marrom com luz lateral, duas de blusa branca no pedestal, blazer azul-marinho sentada (fundo bege), terno escuro em pé. Arquivos vieram do Instagram; pedir os originais à fotógrafa.
 
 ## SEO
 
