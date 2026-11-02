@@ -173,11 +173,11 @@ h1, h2 { text-wrap: balance; }
   .retrato { width: 280px; }
 }
 /* Celular: foto em tela cheia primeiro, título por cima da parte de baixo, fundo café.
-   O botão flutuante só aparece depois do início, então o botão do hero continua. */
+   O agendamento permanece disponível na barra inferior. */
 @media (max-width: 899px) {
   .hero { flex-direction: column; flex-wrap: nowrap; background: var(--cafe); color: var(--linho); }
   .hero :focus-visible { outline-color: var(--linho); }
-  .hero-foto { order: -1; flex: 1 0 auto; min-height: 133vw; }
+  .hero-foto { order: -1; flex: 1 0 auto; min-height: min(110vw, 440px); }
   .hero-foto img { object-position: 46% 20%; }
   .hero-foto::after { content: ""; position: absolute; inset: auto 0 0; height: 48%; background: linear-gradient(to bottom, rgba(73, 54, 43, 0), rgba(73, 54, 43, .7) 55%, var(--cafe)); }
   .hero-texto { flex: none; position: relative; z-index: 1; margin-top: -130px; padding-top: 0; }
@@ -339,6 +339,12 @@ a.canal:hover { border-top-color: var(--cafe); }
 .flutuante.on { opacity: 1; transform: none; pointer-events: auto; }
 .flutuante .ico { width: 36px; height: 36px; }
 @media (min-width: 1080px) { .flutuante { display: none; } }
+@media (max-width: 1079px) {
+  body { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
+  .flutuante { left: 16px; justify-content: center; border: 1px solid rgba(247,242,236,.4); }
+  a, button, summary { scroll-margin-bottom: 96px; }
+}
+@media (max-width: 899px) { .hero-texto { gap: 28px; } .hero-texto > div { gap: 20px; } }
 
 /* Movimento ao rolar: a frase do Sobre ganha cor linha a linha; retrato e ilustração aparecem uma vez. */
 @supports (animation-timeline: view()) {
@@ -688,7 +694,7 @@ a.canal:hover { border-top-color: var(--cafe); }
   </div>
 </footer>
 
-<a class="btn btn-escuro flutuante" id="flutuante" href="https://wa.me/5535998624010?text=Ol%C3%A1!%20Encontrei%20o%20site%20da%20Dra.%20Mar%C3%ADlia%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20atendimento." target="_blank" rel="noopener" aria-label="Agendar avaliação pelo WhatsApp (abre em nova aba)" tabindex="-1">
+<a class="btn btn-escuro flutuante on" id="flutuante" href="https://wa.me/5535998624010?text=Ol%C3%A1!%20Encontrei%20o%20site%20da%20Dra.%20Mar%C3%ADlia%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20atendimento." target="_blank" rel="noopener" aria-label="Agendar avaliação pelo WhatsApp (abre em nova aba)">
   <span class="ico" aria-hidden="true"><svg><use href="#i-whatsapp"/></svg></span><span>Agendar avaliação</span>
 </a>
 
@@ -731,16 +737,7 @@ a.canal:hover { border-top-color: var(--cafe); }
   }), { threshold: 0.3 });
   document.querySelectorAll('.retrato, .anatomia').forEach((el) => revela.observe(el));
 
-  // Botão flutuante: aparece no celular depois do início e some perto da chamada final.
-  const flut = document.getElementById('flutuante');
-  const vistos = new Set();
-  const io = new IntersectionObserver((entradas) => {
-    entradas.forEach((e) => (e.isIntersecting ? vistos.add(e.target) : vistos.delete(e.target)));
-    const on = vistos.size === 0;
-    flut.classList.toggle('on', on);
-    flut.tabIndex = on ? 0 : -1;
-  });
-  document.querySelectorAll('#inicio, .final, .rodape').forEach((el) => io.observe(el));
+
 })();
 </script>
 </body>
